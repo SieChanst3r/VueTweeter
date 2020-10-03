@@ -2,13 +2,13 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import SignupPage from "../views/SignUp.vue";
 import LoginPage from "../views/Login.vue";
-import ProfilePage from "../views/Profile.vue"
-import DeleteProfile from "../views/DeleteProfile.vue"
-import ViewProfiles from "../views/ViewProfiles.vue"
-import UserProfile from "../views/UserProfile.vue"
-import CreateTweet from "../views/CreateTweet.vue"
-import ViewTweets from "../views/ViewTweets.vue"
-import UserFeed from "../views/UserFeed.vue"
+import ProfilePage from "../components/UserProfile.vue";
+import DeleteProfile from "../components/DeleteProfile.vue";
+import ViewProfiles from "../components/ViewProfiles.vue";
+import UserProfile from "../components/UserProfile.vue";
+import CreateTweet from "../components/CreateTweet.vue";
+import ViewTweets from "../components/ViewTweets.vue";
+import UserFeed from "../components/UserFeed.vue";
 
 
 Vue.use(VueRouter);
