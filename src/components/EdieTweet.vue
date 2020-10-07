@@ -5,20 +5,22 @@
 </template>
 
 <script>
-import cookies from "vue-cookies"
 import axios from "axios"
+import Cookies from "vue-cookies"
 
     export default {
-        name: "create-tweet",
-        data() {
+        name: "edit-tweet",
+         data() {
             return {
-                tweetContent: ""
+                tweetContent: "",
+                loginToken: "",
+                tweetId: ""
             }
         },
-        methods: {
-            createTweet: function() {
+         methods: {
+            editTweet: function() {
                 axios.request({
-                    method:"POST",
+                    method:"PATCH",
                     url:"https://tweeterest.ml/api/tweets",
                     headers: {
                         "Content-Type": "application/json",
@@ -26,17 +28,20 @@ import axios from "axios"
                     },
                     data: {
                         loginToken: cookies.get("loginToken"),
-                        content: this.tweetContent
+                        content: this.tweetContent,
+                        tweetId: this.tweetId
                     },
-      
                 }).then((response) => {
                     console.log(reponse)
                 }).catch((error) => {
                     console.log(error)
                 })
             }
-        },
-    }
+        }
+    };
+    
+         
+
 </script>
 
 <style scoped>
