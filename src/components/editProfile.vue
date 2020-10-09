@@ -42,7 +42,7 @@ import cookies from "vue-cookies"
 
                     },
                     data: {
-                        loginToken: cookies.get("loginToken"),
+                        loginToken: cookies.get("session"),
                         email: this.email,
                         username: this.username,
                         password: this.password,

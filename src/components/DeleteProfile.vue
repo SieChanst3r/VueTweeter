@@ -30,12 +30,12 @@ import axios from "axios"
                       
                     },
                     data: {
-                        loginToken: cookies.get("loginToken"),
+                        loginToken: cookies.get("session"),
                         password: this.password
                     }
                 }).then((response) => {
                     console.log(response);
-                    cookies.delete("loginToken");
+                    cookies.delete("session");
                     cookies.delete("userId");
                     this.$router.push("/home")
                 }).catch((error) => {

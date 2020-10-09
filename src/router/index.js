@@ -2,13 +2,9 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import SignupPage from "../views/SignUp.vue";
 import LoginPage from "../views/Login.vue";
-import ProfilePage from "../components/UserProfile.vue";
-import DeleteProfile from "../components/DeleteProfile.vue";
-import ViewProfiles from "../components/ViewProfiles.vue";
-import CreateTweet from "../components/CreateTweet.vue";
-import ViewTweets from "../components/ViewTweets.vue";
-import UserFeed from "../components/UserFeed.vue";
-
+import Feed from "../views/Feed.vue";
+import Profile from "../views/Profile.vue";
+import Search from "../views/Search.vue";
 
 Vue.use(VueRouter);
 
@@ -23,40 +19,21 @@ const routes = [{
         component: LoginPage
     },
     {
+        path: "/feed",
+        name: "feed-page",
+        component: Feed
+    },
+    {
         path: "/profile",
-        name: "user-profile",
-        component: ProfilePage
+        name: "profile-page",
+        component: Profile
     },
     {
-        path: "/delete",
-        name: "delete-profile",
-        component: DeleteProfile
-    },
-    {
-        path: "/viewProfiles",
-        name: "view-profiles",
-        component: ViewProfiles
-    },
-    // {
-    //     path: "/userProfile",
-    //     name: "user-profile",
-    //     component: UserProfile
-    // },
-    {
-        path: "/createTweet",
-        name: "create-tweet",
-        component: CreateTweet
-    },
-    {
-        path: "/viewTweets",
-        name: "view-tweets",
-        component: ViewTweets
-    },
-    {
-        path: "/userFeed",
-        name: "user-feed",
-        component: UserFeed
+        path: "/search",
+        name: "search-page",
+        component: Search
     }
+
 
 ];
 

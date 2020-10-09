@@ -1,6 +1,7 @@
 <template>
     <div>
-
+        <textarea v-model="tweetContent"></textarea>
+        <button @click="createTweet">Submit</button>
     </div>
 </template>
 
@@ -25,12 +26,12 @@ import axios from "axios"
                         "X-Api-Key": "3r0Pca4BgUs9YgXbtTduHwjxmzEa7eIxtBbddHoM9B02g"
                     },
                     data: {
-                        loginToken: cookies.get("loginToken"),
+                        loginToken: cookies.get("session"),
                         content: this.tweetContent
                     },
       
                 }).then((response) => {
-                    console.log(reponse)
+                    console.log(response)
                 }).catch((error) => {
                     console.log(error)
                 })

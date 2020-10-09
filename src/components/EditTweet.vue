@@ -27,7 +27,7 @@ import Cookies from "vue-cookies"
                         "X-Api-Key": "3r0Pca4BgUs9YgXbtTduHwjxmzEa7eIxtBbddHoM9B02g"
                     },
                     data: {
-                        loginToken: cookies.get("loginToken"),
+                        loginToken: cookies.get("session"),
                         content: this.tweetContent,
                         tweetId: this.tweetId
                     },
