@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2>This is the Profile Page</h2>
+
     </div>
 </template>
 
@@ -8,8 +8,10 @@
 
 
     export default {
-        name: "profile-page"
-    };
+        components: {
+            
+        },
+    }
 </script>
 
 <style scoped>

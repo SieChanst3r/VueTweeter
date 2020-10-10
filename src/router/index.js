@@ -4,7 +4,7 @@ import SignupPage from "../views/SignUp.vue";
 import LoginPage from "../views/Login.vue";
 import Feed from "../views/Feed.vue";
 import Profile from "../views/Profile.vue";
-import Search from "../views/Search.vue";
+import Discover from "../views/Discover.vue";
 
 Vue.use(VueRouter);
 
@@ -29,9 +29,9 @@ const routes = [{
         component: Profile
     },
     {
-        path: "/search",
-        name: "search-page",
-        component: Search
+        path: "/discover",
+        name: "Discover-page",
+        component: Discover
     }
 
 
