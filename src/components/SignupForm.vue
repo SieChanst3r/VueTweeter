@@ -48,6 +48,7 @@ import cookies from "vue-cookies"
                 }).then((response) => {
                     //WRITE LOGIC TO ENSURE TOKEN WAS SENT
                     cookies.set('session', response.data.loginToken)
+                    this.$router.push("/feed")
                 }).catch((error) => {
                     console.log(error)
                 })
