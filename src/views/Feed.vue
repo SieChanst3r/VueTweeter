@@ -6,6 +6,7 @@
         <button @click="viewAllTweets">Refresh</button>
         <div v-for="tweet in tweets" :key="tweet.tweetId">
             <tweet-card :tweetObject="tweet"/>
+            <user-feed/>
         </div>
     </div>
 </template>
@@ -15,6 +16,7 @@ import NavBar from "../components/Navigation.vue"
 import axios from "axios"
 import TweetCard from "../components/Tweet.vue"
 import CreateTweet from "../components/CreateTweet.vue"
+import UserFeed from "../components/UserFeed.vue"
 
     export default {
         name: "feed-page",
@@ -27,6 +29,7 @@ import CreateTweet from "../components/CreateTweet.vue"
             CreateTweet,
             TweetCard,
             NavBar,
+            UserFeed,
         },
         mounted: function() {
             this.viewAllTweets()

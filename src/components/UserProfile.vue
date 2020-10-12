@@ -1,5 +1,6 @@
 <template>
     <div id="profile-content">
+        <nav-bar/>
         <h2>THIS IS YOUR PROFILE</h2>
     </div>
 </template>
@@ -7,9 +8,13 @@
 <script>
 // import cookies from "vue-cookies"
 // import axios from "axios"
+import NavBar from "../components/Navigation.vue"
 
     export default {
-        name: "user-profile"
+        name: "user-profile",
+        components: {
+            NavBar,
+        },
     }
 </script>
 

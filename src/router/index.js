@@ -35,7 +35,7 @@ const routes = [{
         component: Discover
     },
     {
-        path: "/landing",
+        path: "/",
         name: "landing-page",
         component: Landing
     }
