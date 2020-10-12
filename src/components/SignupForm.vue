@@ -10,7 +10,7 @@
         <textarea  id="bio-input" v-model="bio"></textarea>
         <p>Birthday</p>
         <input type="text" id="birthday-input" v-model="birthdate">
-        <h2 @click="signupUser">Sign Up</h2>
+        <button class="btn" @click="signupUser">Sign Up</button>
     </div>
 </template>
 

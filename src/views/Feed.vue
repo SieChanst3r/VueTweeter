@@ -1,5 +1,6 @@
 <template>
     <div>
+        <nav-bar/>
         <h1>Feed Page</h1>
         <create-tweet/>
         <button @click="viewAllTweets">Refresh</button>
@@ -10,6 +11,7 @@
 </template>
 
 <script>
+import NavBar from "../components/Navigation.vue"
 import axios from "axios"
 import TweetCard from "../components/Tweet.vue"
 import CreateTweet from "../components/CreateTweet.vue"
@@ -24,6 +26,7 @@ import CreateTweet from "../components/CreateTweet.vue"
             components: {
             CreateTweet,
             TweetCard,
+            NavBar,
         },
         mounted: function() {
             this.viewAllTweets()

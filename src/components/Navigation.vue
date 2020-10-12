@@ -1,10 +1,10 @@
 <template>
     <div id="navigation-container">
-<router-link to="/user-feed"> <img src="../assets/QLogo.jpg" alt="Tweeter QLogo image"></router-link>
+<router-link to="/user-feed"> <img src="../assets/QLogo.jpg" height="50px" alt="Tweeter QLogo image"></router-link>
 <span></span>
-<router-link to="/user-profile"> Profile </router-link>
-<router-link to="/discover"> Discover </router-link>
-<h4 id="logout-btn">Logout</h4>
+<router-link class="btn" to="/user-profile"> Profile </router-link>
+<router-link class="btn" to="/discover"> Discover </router-link>
+<button class="btn">Logout</button>
     </div>
 </template>
 
@@ -24,5 +24,10 @@ import cookies from "vue-cookies"
 </script>
 
 <style scoped>
+#navigation-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    border-bottom: 2px solid #426A5A;
+}
 
 </style>
