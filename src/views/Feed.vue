@@ -1,17 +1,53 @@
 <template>
     <div>
-        <view-tweets/>
+        <h1>Feed Page</h1>
+        <create-tweet/>
+        <button @click="viewAllTweets">Refresh</button>
+        <div v-for="tweet in tweets" :key="tweet.tweetId">
+            <tweet-card :tweetObject="tweet"/>
+        </div>
     </div>
 </template>
 
 <script>
-import ViewTweets from "../components/ViewTweets.vue"
+import axios from "axios"
+import TweetCard from "../components/Tweet.vue"
+import CreateTweet from "../components/CreateTweet.vue"
 
     export default {
-        components: {
-            ViewTweets,
+        name: "feed-page",
+            data() {
+                return {
+                    tweets: []
+                }
+            },
+            components: {
+            CreateTweet,
+            TweetCard,
         },
+        mounted: function() {
+            this.viewAllTweets()
+        },
+        methods: {
+             viewAllTweets: function() {
+             axios.request ({
+             method: "GET",
+                  url:"https://tweeterest.ml/api/tweets",
+                  headers: {
+                        "Content-Type": "application/json",
+                        "X-Api-Key": "3r0Pca4BgUs9YgXbtTduHwjxmzEa7eIxtBbddHoM9B02g"
+
+                    },
+                    
+             }).then((response) => {
+                    this.tweets = response.data;
+                    console.log(response);
+            }).catch((error) => {
+                    console.log(error);
+            });
     }
+        }
+    }         
 </script>
 
 <style scoped>

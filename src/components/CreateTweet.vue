@@ -1,5 +1,7 @@
 <template>
     <div>
+        <h4>What is on your mind?</h4>
+        <h4> {{ tweetStatus }} </h4>
         <textarea v-model="tweetContent"></textarea>
         <button @click="createTweet">Submit</button>
     </div>
@@ -13,11 +15,13 @@ import axios from "axios"
         name: "create-tweet",
         data() {
             return {
-                tweetContent: ""
+                tweetContent: "",
+                tweetStatus: "Tweet!"
             }
         },
         methods: {
             createTweet: function() {
+                this.tweetStatus = "Tweeting!"
                 axios.request({
                     method:"POST",
                     url:"https://tweeterest.ml/api/tweets",
@@ -32,8 +36,10 @@ import axios from "axios"
       
                 }).then((response) => {
                     console.log(response)
+                    this.tweetStatus = "Tweeted!"
                 }).catch((error) => {
                     console.log(error)
+                    this.tweetStatus = "Failed to Post"
                 })
             }
         },
