@@ -5,6 +5,7 @@ import LoginPage from "../views/Login.vue";
 import Feed from "../views/Feed.vue";
 import Profile from "../views/Profile.vue";
 import Discover from "../views/Discover.vue";
+import Landing from "../views/Landing.vue";
 
 Vue.use(VueRouter);
 
@@ -30,8 +31,13 @@ const routes = [{
     },
     {
         path: "/discover",
-        name: "Discover-page",
+        name: "discover-page",
         component: Discover
+    },
+    {
+        path: "/landing",
+        name: "landing-page",
+        component: Landing
     }
 
 
