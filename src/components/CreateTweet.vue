@@ -3,7 +3,7 @@
         <h4>What is on your mind?</h4>
         <h4> {{ tweetStatus }} </h4>
         <textarea v-model="tweetContent"></textarea>
-        <button @click="createTweet">Submit</button>
+        <button @click="createTweet()">Submit</button>
     </div>
 </template>
 

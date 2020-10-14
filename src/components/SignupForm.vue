@@ -1,5 +1,6 @@
 <template>
     <div id="container">
+        <h1>Signup</h1>
         <p>Email</p>
         <input type="text" id="email-input" v-model="email">
         <p>Username</p>

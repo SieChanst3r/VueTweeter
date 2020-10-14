@@ -1,6 +1,6 @@
 <template>
     <div>
-        <user-feed/>
+        <user-feed> {{ tweets.content }} </user-feed>
     </div>
 </template>
 
@@ -39,7 +39,8 @@ import axios from "axios"
                 }).catch((error) => {
                     console.log(error);
                 });
-            }
+            },
+            
         }
     
 </script>

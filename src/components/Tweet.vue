@@ -9,7 +9,7 @@
 </template>
 
 <script>
-// import axios from "axios"
+import axios from "axios"
 // import CreateTweet from "../components/CreateTweet.vue"
 import DeleteTweet from "./DeleteTweet.vue"
 import cookies from "vue-cookies"
@@ -27,9 +27,30 @@ import cookies from "vue-cookies"
         },
         data() {
             return {
+                tweets: [],
                 isOwned: cookies.get('userId') == this.tweetObject.userId
             }
         },
+        mounted: function() {
+            this.getUserTweets();
+        },
+        methods: {
+            getUserTweets: function() {
+                axios.request({
+                    method: "GET",
+                    url: "https://tweeterest.ml/api/tweets",
+                      headers: {
+                        "Content-Type": "application/json",
+                        "X-Api-Key": "3r0Pca4BgUs9YgXbtTduHwjxmzEa7eIxtBbddHoM9B02g"
+
+                    }
+                }).then((response) => {
+                    this.tweets = response.data;
+                }).catch((error) => {
+                    console.log(error)
+                })
+            }
+        }
         // components: {
         //     CreateTweet,
         // },

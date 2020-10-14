@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>PLEASE LOGIN</h1>
+        <h1>Login</h1>
         <p>Email</p>
         <input type="text" id="email-input" v-model="email">
         <p>Password</p>
@@ -44,7 +44,7 @@ import cookies from "vue-cookies"
                     cookies.set('userId', response.data.userId)
                      this.$router.push("/feed")
                     
-                    this.$router.push("/profile")
+                    // this.$router.push("/profile")
                 }).catch((error) => {
                     //SHOW USER LOGIN FAILURE
                     console.log(error)
@@ -56,6 +56,8 @@ import cookies from "vue-cookies"
 </script>
 
 <style lang="scss">
+
+@media only screen and (min-width: 650px) {
 .btn {
   background-color:#426A5A; 
   border: none;
@@ -71,5 +73,5 @@ import cookies from "vue-cookies"
   transition-duration: 0.4s;
    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
-
+}
 </style>
