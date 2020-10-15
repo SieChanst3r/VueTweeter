@@ -1,11 +1,14 @@
 <template>
-    <div>
+    <div id="x">
         <nav-bar/>
+        <div id="container">
         <h1>Feed Page</h1>
         <create-tweet/>
         <button @click="viewAllTweets()">Refresh</button>
-        <div v-for="tweet in tweets" :key="tweet.tweetId">
+        <div id="tweets" v-for="tweet in tweets" :key="tweet.tweetId">
             <tweet-card :tweetObject="tweet"/>
+            <comment/>
+        </div>
         </div>
         <footer-comp/>
     </div>
@@ -17,6 +20,7 @@ import axios from "axios"
 import TweetCard from "../components/Tweet.vue"
 import CreateTweet from "../components/CreateTweet.vue"
 import FooterComp from "../components/Footer.vue"
+import Comment from "../components/AllComStuff.vue"
 // import UserFeed from "../components/UserFeed.vue"
 
     export default {
@@ -32,6 +36,7 @@ import FooterComp from "../components/Footer.vue"
             NavBar,
             FooterComp,
             // UserFeed,
+            Comment,
         },
         mounted: function() {
             this.viewAllTweets()
@@ -59,5 +64,23 @@ import FooterComp from "../components/Footer.vue"
 </script>
 
 <style scoped>
+#container {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    margin: 10px;
+
+}
+#tweets {
+    display: grid;
+    /* justify-items: center; */
+    /* align-items: center; */
+    font-size: 25px;
+    border: 3px solid #426A5A;
+    width: 100%;
+}
+/* #x {
+    /* background-color: #; 
+} */
 
 </style>
