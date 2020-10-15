@@ -1,6 +1,9 @@
 <template>
     <div>
-
+        <div  id="edit-container">
+        <textarea type="text" id="tweet-post" v-model="updatedContent"></textarea>
+        <button @click="editTweet">Update</button>
+        </div>
     </div>
 </template>
 
@@ -12,9 +15,15 @@ import Cookies from "vue-cookies"
         name: "edit-tweet",
          data() {
             return {
-                tweetContent: "",
-                loginToken: "",
-                tweetId: ""
+                updatedContent: "",
+                loginToken: cookies.get('session'),
+                userId: cookies.get('userId')
+            };
+        },
+        props: {
+            tweetId: {
+                type: Number,
+                required: true
             }
         },
          methods: {
@@ -28,7 +37,7 @@ import Cookies from "vue-cookies"
                     },
                     data: {
                         loginToken: cookies.get("session"),
-                        content: this.tweetContent,
+                        content: this.updatedContent,
                         tweetId: this.tweetId
                     },
                 }).then((response) => {
