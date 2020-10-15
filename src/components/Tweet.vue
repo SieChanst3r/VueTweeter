@@ -2,9 +2,12 @@
     <div class="tweet-container">
         <h3> {{ tweetObject.username }} </h3>
         <p> {{ tweetObject.content }} </p>
-        <h5> {{ tweetObject.createdAt }} </h5>
+        <h5 id="created-at"> {{ tweetObject.createdAt }} </h5>
+        <div id="tweet-interact">
         <delete-tweet v-if="isOwned" :tweetId="tweetObject.tweetId"/>
-    
+        <comment :tweetId="tweetObject.tweetId"/>
+        <tweet-likes :tweetId="tweetObject.tweetId"/>
+        </div>
     </div>
 </template>
 
@@ -13,6 +16,8 @@ import axios from "axios"
 // import CreateTweet from "../components/CreateTweet.vue"
 import DeleteTweet from "./DeleteTweet.vue"
 import cookies from "vue-cookies"
+import Comment from "./AllComStuff.vue"
+import TweetLikes from "./TweetLikes.vue"
 
     export default {
         name: "view-tweets",
@@ -24,6 +29,8 @@ import cookies from "vue-cookies"
         },
         components: {
             DeleteTweet,
+            Comment,
+            TweetLikes
         },
         data() {
             return {
@@ -100,5 +107,15 @@ import cookies from "vue-cookies"
 <style scoped>
 .tweet-container {
     margin:10px;
+}
+#created-at {
+    color: #2D6A4F;
+    font-size: 12px;
+}
+#tweet-interact {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 </style>

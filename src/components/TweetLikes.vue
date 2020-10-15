@@ -2,10 +2,11 @@
     <div id="tweetlikes-container">
         <button @click="likeTweet(tweetId)" v-if="isLiked == false">Like</button>
         <button @click="unlikeTweet" v-else-if="isLiked == true">Unlike</button>
-
+        <span></span>
         <div>
             Likes: {{ likesAmount }}
         </div>
+        <span></span>
     </div>
 </template>
 
@@ -93,7 +94,7 @@ import cookies from "vue-cookies"
                         tweetId: this.tweetId
                     }
             }).then((response) =>{
-                this.likesAmount--;
+                this.likesAmount --;
                 console.log(response);
             }).catch((error) => {
                 console.log(error);
