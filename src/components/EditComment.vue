@@ -1,7 +1,7 @@
 <template>
-    <div id="comment-container">
-        <textarea type="text" id="comment" v-model="commentContent"></textarea>
-        <button @click="createComment">Post</button>
+    <div id="patch-comment">
+        <textarea type="text" id="edit-comment" v-model="updatedComment"></textarea>
+        <button @click="editComment">Update</button>
     </div>
 </template>
 
@@ -10,41 +10,40 @@ import axios from "axios"
 import cookies from "vue-cookies"
 
     export default {
-        name: "create-comment",
+        name: "edit-comment",
         data() {
             return {
-                userId: cookies.get("userId"),
-                commentContent: ""
+                loginToken: cookies.get("session"),
+                updatedComment: "",
             };
         },
         props: {
-            tweetId: Number
+            commentId: Number,
         },
         methods: {
-            createCoomment: function() {
+            editComment: function() {
                 axios.request({
-                     method:"POST",
+                     method:"PATCH",
                     url:"https://tweeterest.ml/api/comments",
                     headers: {
                         "Content-Type": "application/json",
                         "X-Api-Key": "3r0Pca4BgUs9YgXbtTduHwjxmzEa7eIxtBbddHoM9B02g"
                     },
                     data: {
-                        loginToken: cookies.get("session"),
-                        tweetId: this.tweetId,
-                        content: this.commentContent
-                    },
+                        loginToken: cookies.get('session'),
+                        commentId: this.commentId,
+                        content: this.updatedComment
+                    }
                 }).then((response) => {
-                    this.commentContent = "";
                     console.log(response);
                 }).catch((error) => {
                     console.log(error);
-                });
+                })
             }
         },
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 </style>
