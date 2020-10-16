@@ -8,11 +8,12 @@
             <p id="com-content"> {{ comment.content }} </p>
             <p>Created: {{ comment.createdAt }} </p>
             <like-comment :commentId="comment.commentId"/>
-        </div>
-        <div>
+            <div>
             <edit-comment v-if="userId == comment.userId" :commentId="comment.commentId"/>
             <delete-comment v-if="userId == comment.userId" :commentId="comment.commentId"/>
         </div>
+        </div>
+        
     </div>
 </template>
 
@@ -34,7 +35,7 @@ import CreateComment from "./CreateComment.vue"
         },
         props: {
             tweetId: Number,
-            commentId: Number
+            
         },
         data() {
             return {
@@ -56,6 +57,7 @@ import CreateComment from "./CreateComment.vue"
                     }
                 }).then((response) => {
                     this.comments = response.data;
+                    console.log(response);
                 }).catch((error) => {
                     console.log(error);
                 });

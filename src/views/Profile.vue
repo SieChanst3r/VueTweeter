@@ -8,8 +8,9 @@
         <div v-for="tweet in tweets" :key="tweet.tweetId">
             <tweet-card :tweetObject="tweet"/>
             <user-tweets/>
-        </div>
+        
         <delete-profile/>
+        </div>
         </div>
         <footer-page/>
         </div>
@@ -25,6 +26,7 @@ import cookies from "vue-cookies"
 import FooterPage from "../components/Footer.vue"
 import DeleteProfile from "../components/DeleteProfile.vue"
 import UserTweets from "../components/Tweet.vue"
+import axios from "axios"
 
     export default {
         name: "profile-page",
@@ -36,18 +38,36 @@ import UserTweets from "../components/Tweet.vue"
             EditProfile,
             DeleteProfile,
             UserTweets
-        },
+        },       
         data() {
             return {
                 loginToken: cookies.get('session'),
-                tweets: ""
-
-            };
+                tweets: []
+            }
         },
-        // params: {
-        //     tweets: this.userId
-        // }
-        
+        // mounted: function() {
+        //     this.getTweets();
+        //     },      
+            getTweets: function() {
+                    axios.request ({
+                    method: "GET",
+                    url:"https://tweeterest.ml/api/tweets",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-Api-Key": "3r0Pca4BgUs9YgXbtTduHwjxmzEa7eIxtBbddHoM9B02g"
+
+                    },
+                    params: {
+                        loginToken: cookies.get("session"),
+                        userId: this.userId
+                    }
+                }).then((response) => {
+                    this.tweets = response.data;
+                    console.log(response);
+                }).catch((error) => {
+                    console.log(error);
+                });
+            },        
     };
 </script>
 

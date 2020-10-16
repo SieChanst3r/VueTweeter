@@ -5,8 +5,10 @@
         <h5 id="created-at"> {{ tweetObject.createdAt }} </h5>
         <div id="tweet-interact">
         <delete-tweet v-if="isOwned" :tweetId="tweetObject.tweetId"/>
+        <div>
         <comment :tweetId="tweetObject.tweetId"/>
         <tweet-likes :tweetId="tweetObject.tweetId"/>
+        </div>
         </div>
     </div>
 </template>

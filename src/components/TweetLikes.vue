@@ -78,9 +78,8 @@ import cookies from "vue-cookies"
                 }).catch((error) => {
                     console.log(error);
                 })
-            }
-        },
-        unlikeTweet: function() {
+            },
+             unlikeTweet: function() {
             (this.isLiked = false),
             axios.request ({
                     method:"DELETE",
@@ -100,6 +99,8 @@ import cookies from "vue-cookies"
                 console.log(error);
             })
         }
+        },
+       
     }
 </script>
 

@@ -2,7 +2,7 @@
     <div>
         <h2>View other Profiles</h2>
         <div id="show-tweets">
-            <div id="profile-container" v-for="tweet in tweets" :key="tweet.tweetId"></div>
+            <div id="profile-container" v-for="tweet in tweets" :key="tweet.tweetId">
             <h2 id="user"> {{ tweet.username }} </h2>
             <h3 id="tweet-content"> {{ tweet.content }} </h3>
             <p id="tweet-content">Created at: {{ tweet.createdAt }} </p>
@@ -12,6 +12,7 @@
                 <follow-users id="follow-btn"/>
             </div>
             <tweet-comment :tweetId="tweet.tweetId"/>
+        </div>
         </div>
     </div>
 </template>

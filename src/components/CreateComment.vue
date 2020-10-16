@@ -21,7 +21,7 @@ import cookies from "vue-cookies"
             tweetId: Number
         },
         methods: {
-            createCoomment: function() {
+            createComment: function() {
                 axios.request({
                      method:"POST",
                     url:"https://tweeterest.ml/api/comments",

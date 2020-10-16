@@ -40,7 +40,7 @@ import cookies from "vue-cookies"
     display: grid;
     justify-items: center;
     align-items: center;
-    height: 80vh;
+    min-height: 80vh;
 }
 #show-tweets {
     margin: 2.5vh;

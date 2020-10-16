@@ -60,9 +60,8 @@ import cookies from "vue-cookies"
                 }).catch((error) => {
                     console.log(error);
                 });
-            }
-        },
-        seeFollowers: function() {
+            },
+             seeFollowers: function() {
             axios.request ({
                  method:"GET",
                     url:"https://tweeterest.ml/api/followers",
@@ -80,6 +79,8 @@ import cookies from "vue-cookies"
                 console.log(error);
             });
         }
+        },
+       
     };
 </script>
 

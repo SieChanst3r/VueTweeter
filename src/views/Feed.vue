@@ -7,6 +7,7 @@
         <create-tweet/>
         <button @click="viewAllTweets()">Refresh</button>
 
+        <!-- <user-feed :tweetId="tweet.tweetId"/> -->
         <div id="tweets" v-for="tweet in tweets" :key="tweet.tweetId">
             <tweet-card :tweetObject="tweet"/>
         </div>
@@ -74,6 +75,8 @@ import FooterComp from "../components/Footer.vue"
     justify-items: center;
     align-items: center;
     margin: 10px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr;
 
 }
  #tweets {
@@ -85,7 +88,7 @@ import FooterComp from "../components/Footer.vue"
     width: 100%;
     margin: 15px; 
     padding: 10px; 
-    /* background-color:#D8F3DC;  */
+    background-color:#D8F3DC;  
     
 } 
 /* #x {
