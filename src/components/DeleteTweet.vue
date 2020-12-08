@@ -25,7 +25,7 @@ import cookies from "vue-cookies"
                     method: "DELETE",
                      headers: {
                         "Content-Type": "application/json",
-                        "X-Api-Key": "3r0Pca4BgUs9YgXbtTduHwjxmzEa7eIxtBbddHoM9B02g"
+                        // "X-Api-Key": "3r0Pca4BgUs9YgXbtTduHwjxmzEa7eIxtBbddHoM9B02g"
                     },
                     data: {
                         loginToken: cookies.get("session"), 
