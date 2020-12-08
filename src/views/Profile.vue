@@ -76,6 +76,6 @@ import axios from "axios"
     display: grid;
     justify-items: center;
     align-items: center;
-    height: 80vh;
+    min-height: 80vh;
 }
 </style>

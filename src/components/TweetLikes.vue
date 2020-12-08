@@ -83,7 +83,8 @@ import cookies from "vue-cookies"
             (this.isLiked = false),
             axios.request ({
                     method:"DELETE",
-                    url:"https://tweeterest.ml/api/tweet-likes",
+                    // url:"https://tweeterest.ml/api/tweet-likes",
+                    url:"127.0.0.1:5000",
                     headers: {
                         "Content-Type": "application/json",
                         "X-Api-Key": "3r0Pca4BgUs9YgXbtTduHwjxmzEa7eIxtBbddHoM9B02g"

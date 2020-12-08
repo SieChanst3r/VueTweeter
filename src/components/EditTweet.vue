@@ -30,7 +30,8 @@ import Cookies from "vue-cookies"
             editTweet: function() {
                 axios.request({
                     method:"PATCH",
-                    url:"https://tweeterest.ml/api/tweets",
+                    // url:"https://tweeterest.ml/api/tweets",
+                    url:"127.0.0.1:5000",
                     headers: {
                         "Content-Type": "application/json",
                         "X-Api-Key": "3r0Pca4BgUs9YgXbtTduHwjxmzEa7eIxtBbddHoM9B02g"
