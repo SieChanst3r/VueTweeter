@@ -21,7 +21,7 @@ import cookies from "vue-cookies"
             deleteTweet: function() {
                 axios.request({
                     // url: "https://tweeterest.ml/api/tweets",
-                    url:"127.0.0.1:5000",
+                    url:"http://127.0.0.1:5000/api/tweets",
                     method: "DELETE",
                      headers: {
                         "Content-Type": "application/json",

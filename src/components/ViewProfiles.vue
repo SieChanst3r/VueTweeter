@@ -47,7 +47,7 @@ import DeleteTweet from "../components/DeleteTweet.vue"
                 axios.request ({
                      method:"GET",
                     // url:"https://tweeterest.ml/api/tweets",
-                    url:"127.0.0.1:5000",
+                    url:"http://localhost:5000/api/tweets",
                     headers: {
                         "Content-Type": "application/json",
                         // "X-Api-Key": "3r0Pca4BgUs9YgXbtTduHwjxmzEa7eIxtBbddHoM9B02g"

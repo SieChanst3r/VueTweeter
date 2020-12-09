@@ -35,7 +35,7 @@ import cookies from "vue-cookies"
                 axios.request({
                     method: "POST",
                     // url: "https://tweeterest.ml/api/users",
-                    url:"127.0.0.1:5000",
+                    url:"http://127.0.0.1:5000/api/users",
                     headers: {
                         "Content-Type": "application/json",
                         // "X-Api-Key": "3r0Pca4BgUs9YgXbtTduHwjxmzEa7eIxtBbddHoM9B02g"
