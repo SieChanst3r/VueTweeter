@@ -27,10 +27,11 @@ import cookies from "vue-cookies"
                 this.isFollowing = true;
                 axios.request ({
                      method:"POST",
-                    url:"https://tweeterest.ml/api/follows",
+                    // url:"https://tweeterest.ml/api/follows",
+                    url:"http://127.0.0.1:5000/api/follows",
                     headers: {
                         "Content-Type": "application/json",
-                        "X-Api-Key": "3r0Pca4BgUs9YgXbtTduHwjxmzEa7eIxtBbddHoM9B02g"
+                        // "X-Api-Key": "3r0Pca4BgUs9YgXbtTduHwjxmzEa7eIxtBbddHoM9B02g"
                     },
                     data: {
                         loginToken: cookies.get('session'),
@@ -46,10 +47,11 @@ import cookies from "vue-cookies"
                 this.isFollowing = false;
                 axios.request ({
                      method:"DELETE",
-                    url:"https://tweeterest.ml/api/follows",
+                    // url:"https://tweeterest.ml/api/follows",
+                    url:"http://127.0.0.1:5000/api/follows",
                     headers: {
                         "Content-Type": "application/json",
-                        "X-Api-Key": "3r0Pca4BgUs9YgXbtTduHwjxmzEa7eIxtBbddHoM9B02g"
+                        // "X-Api-Key": "3r0Pca4BgUs9YgXbtTduHwjxmzEa7eIxtBbddHoM9B02g"
                     },
                     data: {
                         loginToken: cookies.get('session'),

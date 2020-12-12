@@ -22,7 +22,7 @@ import cookies from "vue-cookies"
 import axios from "axios"
 import TweetLikes from "../components/TweetLikes.vue"
 import TweetComment from "../components/AllComStuff"
-import FollowUsers from "../components/FollowBtn.vue"
+import FollowUsers from "../components/FollowUnfollowBtn.vue"
 import DeleteTweet from "../components/DeleteTweet.vue"
 
     export default {

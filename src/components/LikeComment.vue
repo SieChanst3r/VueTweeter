@@ -2,7 +2,7 @@
     <div id="comlikes-container">
         <button @click="likeComment" v-if="isLiked == false">Like</button>
         <button @click="unlikeCom" v-else-if="isLiked == true">Unlike</button>
-        <div>Likes: {{ comLikesAmount }} </div>
+        <div>Likes: {{ likesAmount }} </div>
     </div>
 </template>
 
@@ -26,22 +26,22 @@ import cookies from "vue-cookies"
                 this.GetComLikes();
             },
             methods: {
-                likeComment: function(commentId) {
+                likeComment: function() {
                     (this.isLiked = true),
                     axios.request ({
                          method:"POST",
                     // url:"https://tweeterest.ml/api/comment-likes",
-                    url:"http://127.0.0.1:5000/comment-likes",
+                    url:"http://127.0.0.1:5000/api/comment-likes",
                     headers: {
                         "Content-Type": "application/json",
                         // "X-Api-Key": "3r0Pca4BgUs9YgXbtTduHwjxmzEa7eIxtBbddHoM9B02g"
                     },
                     data: {
                         loginToken: cookies.get('session'),
-                        commentId: commentId,
+                        commentId: this.commentId,
                     }
                     }).then((response) => {
-                        this.comLikesAmount++;
+                        this.likesAmount++;
                         console.log(response);
                     }).catch((error) => {
                         console.log(error);
@@ -50,10 +50,11 @@ import cookies from "vue-cookies"
                 GetComLikes: function() {
                     axios.request ({
                          method:"GET",
-                    url:"https://tweeterest.ml/api/tweets",
+                    // url:"https://tweeterest.ml/api/tweets",
+                    url:"http://127.0.0.1:5000/api/comment-likes",
                     headers: {
                         "Content-Type": "application/json",
-                        "X-Api-Key": "3r0Pca4BgUs9YgXbtTduHwjxmzEa7eIxtBbddHoM9B02g"
+                        // "X-Api-Key": "3r0Pca4BgUs9YgXbtTduHwjxmzEa7eIxtBbddHoM9B02g"
                     },
                     params: {
                         commentId: this.commentId,
@@ -78,17 +79,18 @@ import cookies from "vue-cookies"
                     (this.isLiked = false),
                     axios.request ({
                          method:"DELETE",
-                    url:"https://tweeterest.ml/api/tweets",
+                    // url:"https://tweeterest.ml/api/tweets",
+                    url:"http://127.0.0.1:5000/api/comment-likes",
                     headers: {
                         "Content-Type": "application/json",
-                        "X-Api-Key": "3r0Pca4BgUs9YgXbtTduHwjxmzEa7eIxtBbddHoM9B02g"
+                        // "X-Api-Key": "3r0Pca4BgUs9YgXbtTduHwjxmzEa7eIxtBbddHoM9B02g"
                     },
                     data: {
                         loginToken: cookies.get('session'),
                         commentId: this.commentId,
                     }
                     }).then((response) => {
-                        this.comLikesAmount--;
+                        this.likesAmount--;
                         console.log(response);
                     }).catch((error) => {
                         console.log(error);

@@ -34,10 +34,11 @@ import cookies from "vue-cookies"
                 (this.isLiked = true),
                 axios.request ({
                           method:"POST",
-                    url:"https://tweeterest.ml/api/tweet-likes",
+                    // url:"https://tweeterest.ml/api/tweet-likes",
+                    url:"http://127.0.0.1:5000/api/tweet-likes",
                     headers: {
                         "Content-Type": "application/json",
-                        "X-Api-Key": "3r0Pca4BgUs9YgXbtTduHwjxmzEa7eIxtBbddHoM9B02g"
+                        // "X-Api-Key": "3r0Pca4BgUs9YgXbtTduHwjxmzEa7eIxtBbddHoM9B02g"
                     },
                     data: {
                         loginToken: cookies.get('session'),
@@ -53,10 +54,11 @@ import cookies from "vue-cookies"
             retrieveLikes: function() {
                 axios.request ({
                     method:"GET",
-                    url:"https://tweeterest.ml/api/tweet-likes",
+                    // url:"https://tweeterest.ml/api/tweet-likes",
+                    url:"http://127.0.0.1:5000/api/tweet-likes",
                     headers: {
                         "Content-Type": "application/json",
-                        "X-Api-Key": "3r0Pca4BgUs9YgXbtTduHwjxmzEa7eIxtBbddHoM9B02g"
+                        // "X-Api-Key": "3r0Pca4BgUs9YgXbtTduHwjxmzEa7eIxtBbddHoM9B02g"
                     },
                     params: {
                         tweetId: this.tweetId,
