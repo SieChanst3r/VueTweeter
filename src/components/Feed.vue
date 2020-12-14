@@ -4,16 +4,45 @@
         <create-tweet/>
         <div id="btn-container">
             <button class="show-following-users-tweets-btn" @click="showFollowingTweets"> 
-            VIEW QUEERTR POSTS               
+                VIEW QUEERTR POSTS               
              </button>
+             <button class="show-following-users-tweets-btn" @click="showCurrentUserPosts"> 
+                VIEW YOUR POSTS 
+             </button>
+        <div id="tweet-container" v-for="tweet in tweets" :key="tweet.tweetId">
+            <h2 class="user">
+                <strong> {{ tweet.username }}
+            </h2>
+            <p>Created at: {{ tweet.createdAt }}</p>
+            <tweet-likes :tweetId="tweet.tweetId" />
+            <div>
+                <delete-tweet class="delete-btn"
+                    v-if="userId == tweet.userId" :tweetId="tweet.tweetId"
+                />
+                <follow-unfollow-btn class="follow-btn" />
+                <span/>
+                <span />                
+            </div>
+            <update-tweet v-if="userId == tweet.userId" :tweetId="tweet.tweetId" />
+            <span />
+            <all-com-stuff :tweetId="tweet.tweetId" />
+
+        </div>
 
         </div>
     </div>
 </template>
 
 <script>
+import cookies from "vue-cookies";
+import axios from "axios";
 import CreateTweet from "../components/CreateTweet.vue";
 import AllComStuff from "../components/AllComStuff.vue";
+import TweetLikes from "../components/TweetLikes.vue";
+import DeleteTweet from "../components/DeleteTweet.vue";
+import FollowUnfollowBtn from "../components/FollowUnfollowBtn";
+import FollowUnfollowBtn from './FollowUnfollowBtn.vue';
+import UpdateTweet from "../components/EditTweet.vue";
 
 
     export default {
@@ -21,6 +50,10 @@ import AllComStuff from "../components/AllComStuff.vue";
         components: {
             CreateTweet,
             AllComStuff,
+            TweetLikes,
+            DeleteTweet,
+            FollowUnfollowBtn,
+            UpdateTweet,
         },
         data() {
             return {
