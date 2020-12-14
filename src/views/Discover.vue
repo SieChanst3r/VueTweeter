@@ -5,8 +5,10 @@
         </div>
         <h3>Discover QUEERTR</h3>
         <span/>
-        <div id="users">
+        <div class="body-container">
+            <div id="users">
             <view-users id="show-tweets" :tweetId="tweet.tweetId"/>
+            </div>
         </div>
         <br/>
         <footer-comp/>
@@ -38,6 +40,7 @@ import cookies from "vue-cookies"
 <style scoped>
 #users {
     display: grid;
+    /* grid-template-rows: 1fr 1fr; */
     justify-items: center;
     align-items: center;
     min-height: 80vh;
